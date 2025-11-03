@@ -9,7 +9,7 @@ st.set_page_config(page_title="Health Symptom Checker", layout="centered")
 path="."
 # Load model and metadata
 model = joblib.load("./symptom_checker.pkl")
-le = joblib.load("./label_encoder.pkl")
+le = joblib.load("./label_encoderr.pkl")
 with open("./metadata.json", "r") as f:
     meta = json.load(f)
 
