@@ -4,12 +4,47 @@ import pandas as pd
 import joblib
 import json
 import numpy as np
+import requests
+import gdown
+import pickle
 
 st.set_page_config(page_title="Health Symptom Checker", layout="centered")
 path="."
 # Load model and metadata
-model = joblib.load("./symptom_checker.pkl")
-le = joblib.load("./label_encoderr.pkl")
+#try:
+#    model = joblib.load("./symptom_checker.pkl")
+#    print("Model loaded successfully")
+#except Exception as e:
+#    print("Load failed:", e)
+
+URL = "https://drive.google.com/uc?id=1645wfzc0VQ_lXzcOrXKhgvWM8EsdZcYf"
+r=requests.get(URL)
+output = "AAsymptom_checker.pkl"
+#st.write("Downloading the model from google drive...")
+#gdown.download(URL, output, quiet=False)
+#with open(output, "rb") as f:
+     #f.write(r.content)
+     #model = joblib.load(output)
+
+
+# 2️⃣ Load the model
+model = joblib.load("AAsymptom_checker.pkl")
+#model=joblib.load("symptom_checker.pkl", "wb").write(r.content)
+#model = joblib.load("symptom_checker.pkl")
+#le = joblib.load("ttps://github.com/Enoch100/sickness-prediction/blob/main/label_encoder.pkl")
+#le = joblib.load("https://github.com/Enoch100/sickness-predictions/blob/main/label_encoder.pkl")
+
+#import joblib
+
+from io import BytesIO
+
+url = "https://github.com/Enoch100/sickness-predictions/raw/main/label_encoder.pkl"
+response = requests.get(url)
+response.raise_for_status()  # ensure the request succeeded
+
+le = joblib.load(BytesIO(response.content))
+
+
 with open("./metadata.json", "r") as f:
     meta = json.load(f)
 
@@ -61,3 +96,4 @@ if st.button("Check Possible Conditions"):
         st.info("If symptoms are severe or worsening, seek emergency medical care immediately.")
 
 st.markdown('<div style="position: fixed; bottom: 10px; right: 10px; color: #777;">Created with ❤️ — Educational tool</div>', unsafe_allow_html=True)
+
