@@ -21,14 +21,14 @@ URL = "https://drive.google.com/uc?id=1645wfzc0VQ_lXzcOrXKhgvWM8EsdZcYf"
 r=requests.get(URL)
 output = "AAsymptom_checker.pkl"
 #st.write("Downloading the model from google drive...")
-#gdown.download(URL, output, quiet=False)
-#with open(output, "rb") as f:
+gdown.download(URL, output, quiet=False)
+with open(output, "rb") as f:
      #f.write(r.content)
-     #model = joblib.load(output)
+     model = joblib.load(output)
 
 
 # 2️⃣ Load the model
-model = joblib.load("AAsymptom_checker.pkl")
+#model = joblib.load("AAsymptom_checker.pkl")
 #model=joblib.load("symptom_checker.pkl", "wb").write(r.content)
 #model = joblib.load("symptom_checker.pkl")
 #le = joblib.load("ttps://github.com/Enoch100/sickness-prediction/blob/main/label_encoder.pkl")
