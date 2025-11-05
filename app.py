@@ -97,7 +97,5 @@ if st.button("Check Possible Conditions"):
         st.info("If symptoms are severe or worsening, seek emergency medical care immediately.")
 
 st.markdown('<div style="position: fixed; bottom: 10px; right: 10px; color: #777;">Created with ❤️ — Educational tool</div>', unsafe_allow_html=True)
-clear=st.button("Clear Inputs")
-if clear:
-     st.experimental_rerun()
+
 
