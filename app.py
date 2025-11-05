@@ -55,6 +55,7 @@ df = pd.read_csv("./symptom_disease_full_41_final.csv")
 df_meta = df[["disease","description","precaution","severity_level"]].drop_duplicates(subset=["disease"]).set_index("disease")
 
 st.markdown("<h1 style='text-align:center; color: #2E8B57;'>🌿 Health Symptom Checker</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center; color: #2E8B57;'>Excellency</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; color:#2E8B57;'>Select symptoms below and get the top 3 possible conditions (for educational use only).</p>", unsafe_allow_html=True)
 st.write("---")
 
