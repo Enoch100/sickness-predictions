@@ -24,7 +24,7 @@ output = "AAsymptom_checker.pkl"
 #output = "ssymptom_checker.pkl"
 st.write("Downloading the model from google drive...")
 #gdown.download(URL, output, quiet=False)
-with open(output, "rb") as f:
+#with open(output, "rb") as f:
      #f.write(r.content)
      model = joblib.load(output)
 
