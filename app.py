@@ -21,7 +21,7 @@ URL = "https://drive.google.com/uc?id=1645wfzc0VQ_lXzcOrXKhgvWM8EsdZcYf"
 #URL = "https://drive.google.com/uc?id=1zPNJbJhH5SeKFB-JaKoA3DIkFeDBHUbA"
 r=requests.get(URL)
 output = "AAsymptom_checker.pkl"
-output = "ssymptom_checker.pkl"
+#output = "ssymptom_checker.pkl"
 st.write("Downloading the model from google drive...")
 gdown.download(URL, output, quiet=False)
 with open(output, "rb") as f:
